@@ -1,21 +1,39 @@
 import React from 'react';
-import Icon from './icon/index';
-import Text from './text/index';
-import Link from './link/index'
-import './header.css';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/styles';
+import Navbar from "./navbar/index"
+
+const styles = theme => ({
+  appHeader: {
+    backgroundColor: '#282c34',
+    top: 0,
+    height: '50px',
+    zIndex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: 'calc(20px + 2vmin)',
+    color: 'white',
+    fontFamily: 'Inria Serif, serif',
+  }
+});
 
 class Header extends React.Component {
   render() {
+    const { classes } = this.props;
       return (
-        <div className = "header" >
-          <header className="app-header">
-            <Icon />
-            <Text />
-            <Link />
+        <div>
+          <header className ={classes.appHeader}>
+            <Navbar/>
           </header>
         </div>  
       );
   }
 }
 
-export default Header;
+Header.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(Header);
