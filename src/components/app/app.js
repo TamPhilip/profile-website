@@ -1,22 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/styles';
+
 import Header from './header/index';
 import Body from './body/index';
 
-const styles = theme => ({
-    app: {
-        position: 'absolute',
-        overflow: 'auto',
-        textAlign: 'center',
-    },
-});
+import "./app.scss"
 
 class App extends React.Component {
     render() {
-        const { classes } = this.props;
         return (
-            <div className={classes.app} >
+            <div className={"app"} >
                 <Header/>
                 <Body/>
             </div>
@@ -24,10 +17,9 @@ class App extends React.Component {
     }
 }
 
-
 App.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
 
-export default withStyles(styles)(App);
+export default App;
